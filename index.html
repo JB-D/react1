@@ -17,13 +17,43 @@
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script type="text/babel">
-        const name = 'Clarisse Agbegnenou';
-        const element = <h1>Eh ben... On est pas sortis du sable !</h1>;
+        const element = 
+            <nav>
+                <h1>Eh ben... On est pas sortis du sable !</h1>
+                <ul> 
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Compétences</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>;
+            
     
-        ReactDOM.render(
-        element,
-        document.getElementsByTagName('header')[0]
+        ReactDOM.render(element,
+        document.getElementsByTagName('header')[0]  
         );
+
+        const section1 =
+            <section id="section1">
+                <h2>Jean-Baptiste DUBAR</h2>
+                <div id="avatarContainer">
+                    <img id="logo" src="img/avatar.png"/>
+                </div>
+                <h2>Je développe des outils pour le web !</h2>
+            </section>;
+
+        ReactDOM.render(section1,
+        document.getElementsByTagName('section')[0]
+        );
+
+        const section2 =
+            <section id="section2">
+                <h2>Wao wao wao</h2>
+                <h2>Je développe des outils pour le web !</h2>
+            </section>;
+    
+        // ReactDOM.render(section2,
+        // document.getElementsByTagName('section')[0]
+        // );
     </script>
 </body>
 </html>
