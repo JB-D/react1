@@ -17,43 +17,95 @@
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script type="text/babel">
-        const element = 
+
+        function Header() {
+            const title = 'Eh ben... On est pas sortis du sable !';
+            const linkOne = 'Accueil';
+            const linkTwo = 'Compétences';
+            const linkThree = 'Contact';
+            //Ohlé
+            return (
             <nav>
-                <h1>Eh ben... On est pas sortis du sable !</h1>
+                <h1>{title}</h1>
                 <ul> 
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Compétences</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">{linkOne}</a></li>
+                    <li><a href="#">{linkTwo}</a></li>
+                    <li><a href="#">{linkThree}</a></li>
                 </ul>
-            </nav>;
-            
-    
-        ReactDOM.render(element,
+            </nav>
+            )
+        }
+        ReactDOM.render(<Header/>,
         document.getElementsByTagName('header')[0]  
         );
 
-        const section1 =
-            <section id="section1">
-                <h2>Jean-Baptiste DUBAR</h2>
-                <div id="avatarContainer">
-                    <img id="logo" src="img/avatar.png"/>
-                </div>
-                <h2>Je développe des outils pour le web !</h2>
-            </section>;
 
-        ReactDOM.render(section1,
+        
+        function functionCards(){
+            let cardsTechno = [
+            {"img":"img/html.png", "nom":"HTML", "projet":"Lorem ipsum dolor"},
+            {"img":"img/css.png", "nom":"CSS", "projet":"Lorem ipsum dolor"},
+            {"img":"img/js.png", "nom":"Javascript", "projet":"Lorem ipsum dolor"},
+            {"img":"img/php.png", "nom":"PHP", "projet":"Lorem ipsum dolor"},
+            {"img":"img/react.png", "nom":"React", "projet":"Lorem ipsum dolor"},
+            ];
+            return(
+                cardsTechno.map(function(cardsTechno,index){
+                    return(
+                        <div key={index} className="card">
+                            <img src={cardsTechno.img}/>
+                            <b>{cardsTechno.nom}</b>
+                            <p>Projet : {cardsTechno.projet}</p>
+                        </div>
+                    )
+                })
+            )
+        }
+
+        function Section() {
+            const PrenomNom='Jean-Baptiste DUBAR';
+            const PhraseAccroche='Je développe des outils pour le web !';
+            let cards=functionCards();
+            return(
+                <React.Fragment>
+                <section id="section1">
+                    <h2>{PrenomNom}</h2>
+                    <div id="avatarContainer">
+                        <img id="logo" src="img/avatar.png"/>
+                    </div>
+                    <h2>{PhraseAccroche}</h2>
+                </section>
+                <section id="section2">
+                    {cards}
+                </section>
+                </React.Fragment>
+            )
+        }
+        ReactDOM.render(<Section/>,
         document.getElementsByTagName('section')[0]
         );
 
-        const section2 =
-            <section id="section2">
-                <h2>Wao wao wao</h2>
-                <h2>Je développe des outils pour le web !</h2>
-            </section>;
-    
-        // ReactDOM.render(section2,
-        // document.getElementsByTagName('section')[0]
-        // );
+
+
+
+        function Footer() {
+            const copyright = '© - 2022 - Dubar Jean-Baptiste';
+            return (
+                <React.Fragment>
+                <a href="https://www.linkedin.com/in/jean-baptiste-dubar-328704187/">
+                    <img src="./img/linkedin.png" alt="Logo LinkedIn"/>
+                </a>
+                <a href="https://github.com/JB-D">
+                    <img src="./img/github.png" alt="Logo GitHub"/>
+                </a>
+                <p>{copyright}</p>
+                </React.Fragment>
+            )
+        }
+        ReactDOM.render(<Footer/>,
+        document.getElementsByTagName('footer')[0]
+        );
+
     </script>
 </body>
 </html>
